@@ -1,0 +1,9 @@
+services:
+  bountydock:
+    image: bountydock
+    build: .
+    network_mode: "host"
+    volumes:
+      - type: bind
+        source: ${BOUNTY_PATH:-/tmp}
+        target: /host

@@ -1,6 +1,6 @@
 FROM archlinux:latest AS base
 RUN pacman-key --init
-RUN pacman -Syu --needed --noconfirm openssl-1.1 base-devel git go zsh vim python-pip python-setuptools yarn
+RUN pacman -Syu --needed --noconfirm openssl-1.1 dnsutils base-devel git go zsh vim jq python-pip python-setuptools yarn
 RUN useradd -m -G wheel -s /bin/zsh dock
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER dock
@@ -18,6 +18,7 @@ RUN go install github.com/projectdiscovery/httpx/cmd/httpx@latest
 RUN go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 RUN go install github.com/projectdiscovery/shuffledns/cmd/shuffledns@latest
 RUN go install github.com/projectdiscovery/simplehttpserver/cmd/simplehttpserver@latest
+RUN go install github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
 RUN go install github.com/hahwul/dalfox/v2@latest
 RUN go install github.com/ffuf/ffuf@latest
 RUN go install github.com/lc/gau/v2/cmd/gau@latest
