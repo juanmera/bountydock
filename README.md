@@ -1,14 +1,18 @@
 Dockerfile with useful tools for pentesting/bug bounty
 
-# Tools:
+# Collections:
 * https://github.com/hahwul/WebHackersWeapons
 * https://docs.osmedeus.org/premium/#anatomy-of-the-private-workflow-my-methodology
-## Recon
+* https://github.com/orgs/BishopFox/repositories
+* https://github.com/tomnomnom?tab=repositories
+
+# Recon
 * https://github.com/six2dez/reconftw
 * https://github.com/honoki/bbrf-client
 * https://github.com/thewhiteh4t/FinalRecon
 * https://github.com/PatrikFehrenbach/vilicus
-## SMTP
+
+# SMTP
 * https://github.com/axllent/mailpit
 
 # Lists
