@@ -2,6 +2,7 @@ Dockerfile with useful tools for pentesting/bug bounty
 
 # Collections:
 * https://github.com/hahwul/WebHackersWeapons
+* https://github.com/vavkamil/awesome-bugbounty-tools
 * https://docs.osmedeus.org/premium/#anatomy-of-the-private-workflow-my-methodology
 * https://github.com/orgs/BishopFox/repositories
 * https://github.com/tomnomnom?tab=repositories
@@ -19,6 +20,7 @@ Dockerfile with useful tools for pentesting/bug bounty
 * https://github.com/danielmiessler/SecLists
 * https://github.com/kkrypt0nn/wordlists
 * https://github.com/ayoubfathi/leaky-paths
+* https://wordlists.assetnote.io/
 
 # Other references:
 * https://github.com/OWASP/wstg/blob/master/checklists/checklist.md

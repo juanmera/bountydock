@@ -55,7 +55,7 @@ function __promptline_ps1 {
 }
 function __promptline_vcs_branch {
   local branch
-  local branch_symbol=" "
+  local branch_symbol=" "
 
   # git
   if hash git 2>/dev/null; then
@@ -69,11 +69,11 @@ function __promptline_vcs_branch {
 }
 function __promptline_cwd {
   local dir_limit="3"
-  local truncation="⋯"
+  local truncation="⋯ "
   local first_char
   local part_count=0
   local formatted_cwd=""
-  local dir_sep="  "
+  local dir_sep=" / "
   local tilde="~"
 
   local cwd="${PWD/#$HOME/$tilde}"
@@ -104,7 +104,7 @@ function __promptline_left_prompt {
   slice_prefix="${a_bg}${sep}${a_fg}${a_bg}${space}" slice_suffix="$space${a_sep_fg}" slice_joiner="${a_fg}${a_bg}${alt_sep}${space}" slice_empty_prefix="${a_fg}${a_bg}${space}"
   [ $is_prompt_empty -eq 1 ] && slice_prefix="$slice_empty_prefix"
   # section "a" slices
-  __promptline_wrapper "$(__promptline_host)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
+  #__promptline_wrapper "$(__promptline_host)" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
   __promptline_wrapper "$(if [[ -n ${ZSH_VERSION-} ]]; then print %n; elif [[ -n ${FISH_VERSION-} ]]; then printf "%s" "$USER"; else printf "%s" \\u; fi )" "$slice_prefix" "$slice_suffix" && { slice_prefix="$slice_joiner"; is_prompt_empty=0; }
 
   # section "b" header
@@ -160,7 +160,7 @@ function __promptline {
   local space=" "
   local sep=""
   local rsep=""
-  local alt_sep=""
+  local alt_sep=">"
   local alt_rsep=""
   local reset="${wrap}0${end_wrap}"
   local reset_bg="${wrap}49${end_wrap}"
