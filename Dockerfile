@@ -30,9 +30,11 @@ RUN go install github.com/hahwul/dalfox/v2@latest
 RUN go install github.com/hahwul/jwt-hack@latest
 RUN go install github.com/lc/gau/v2/cmd/gau@latest
 RUN go install github.com/liamg/gitjacker/cmd/gitjacker@latest
+RUN go install github.com/rs/curlie@latest
 RUN go install github.com/rverton/webanalyze/cmd/webanalyze@latest
 RUN go install github.com/sensepost/gowitness@latest
 RUN go install github.com/OJ/gobuster/v3@latest
+RUN go install github.com/owasp-amass/amass/v4/...@latest
 RUN go install github.com/praetorian-inc/fingerprintx/cmd/fingerprintx@latest
 RUN git clone --depth 1 https://github.com/trufflesecurity/trufflehog.git && cd trufflehog && go install
 RUN git clone --depth 1 https://github.com/zmap/zdns.git && cd zdns && go install
@@ -44,7 +46,7 @@ RUN mkdir /home/dock/repos
 ADD wordlists.tar.xz /
 COPY --from=gobuilds /root/go/bin/* /usr/bin/
 RUN sudo npm install -g retire
-RUN yay -Syu --needed --noconfirm --cleanafter xsv nmap zmap sqlmap wpscan nikto noseyparker amass metasploit wafw00f zsh-antidote freetype2 mesa google-chrome
+RUN yay -Syu --needed --noconfirm --cleanafter xsv nmap zmap sqlmap wpscan nikto noseyparker metasploit wafw00f zsh-antidote freetype2 mesa massdns google-chrome
 
 WORKDIR /home/dock
 COPY --chown=dock .zsh* .vimrc ./
@@ -57,10 +59,15 @@ RUN git clone -q --depth 1 https://github.com/wappalyzer/wappalyzer.git && cd wa
 RUN git clone -q --depth 1 https://github.com/OWASP/Nettacker && cd Nettacker && pipenv install && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/Nettacker\npipenv run python nettacker.py "'$@' > nettacker && chmod +x nettacker
 RUN git clone -q --depth 1 https://github.com/ticarpi/jwt_tool.git && cd jwt_tool && pipenv install && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/jwt_tool\npipenv run python jwt_tool.py "'$@' > jwt_tool && chmod +x jwt_tool
 RUN git clone -q --depth 1 https://github.com/mzfr/liffy && cd liffy && pipenv install && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/liffy\npipenv run python liffy.py "'$@' > liffy && chmod +x liffy
+RUN git clone -q --depth 1 https://github.com/vladko312/SSTImap && cd SSTImap && pipenv install && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/SSTImap\npipenv run python sstimap.py "'$@' > sstimap && chmod +x sstimap
 RUN git clone -q --depth 1 https://github.com/santoru/shcheck && cd shcheck && pipenv install . && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/shcheck\npipenv run python shcheck.py "'$@' > shcheck && chmod +x shcheck
 RUN git clone -q --depth 1 https://github.com/commixproject/commix && cd commix && pipenv install . && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/commix\npipenv run commix "'$@' > commix && chmod +x commix
+RUN git clone -q --depth 1 https://github.com/vulnersCom/getsploit && cd getsploit && pipenv install . && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/getsploit\npipenv run getsploit "'$@' > getsploit && chmod +x getsploit
+RUN git clone -q --depth 1 https://github.com/vortexau/dnsvalidator && cd dnsvalidator && pipenv install . && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/dnsvalidator\npipenv run dnsvalidator "'$@' > dnsvalidator && chmod +x dnsvalidator
 RUN git clone -q --depth 1 https://github.com/Raghavd3v/CRLFsuite && cd CRLFsuite && pipenv install . && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/CRLFsuite\npipenv run crlfsuite "'$@' > crlfsuite && chmod +x crlfsuite
+RUN git clone -q --depth 1 https://github.com/trickest/resolvers
 RUN git clone -q --depth 1 https://github.com/projectdiscovery/nuclei-templates
+RUN git clone -q --depth 1 https://github.com/projectdiscovery/fuzzing-templates
 #ENV PATH="$PATH:/home/dock/.local/bin"
 
 WORKDIR /home/dock
