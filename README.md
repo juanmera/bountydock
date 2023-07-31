@@ -1,9 +1,15 @@
 Dockerfile with useful tools for pentesting/bug bounty
 
-# Tools:
-*
+# Installed Tools:
+
+## [alterx](https://github.com/projectdiscovery/alterx)
+Fast and customizable subdomain wordlist generator using DSL
+
 ## [amass](https://github.com/owasp-amass/amass)
 In-depth attack surface mapping and asset discovery
+
+## [anew](https://github.com/tomnomnom/anew)
+A tool for adding new lines to files, skipping duplicates
 
 ## [asnma](https://github.com/projectdiscovery/asnmap)
 Go CLI and Library for quickly mapping organization network ranges using ASN information.
@@ -34,6 +40,9 @@ Maintains a list of IPv4 DNS servers by verifying them against baseline servers,
 
 ## [dnsx](https://github.com/projectdiscovery/dnsx)
 dnsx is a fast and multi-purpose DNS toolkit allow to run multiple DNS queries of your choice with a list of user-supplied resolvers.
+
+## [dsieve](https://github.com/trickest/dsieve)
+Filter and enrich a list of subdomains by level
 
 ## [ffuf](https://github.com/ffuf/ffuf)
 Fast web fuzzer written in Go
@@ -103,6 +112,9 @@ Fast and customizable vulnerability scanner based on simple YAML based DSL.
 ## [proxify](https://github.com/projectdiscovery/proxify)
 A versatile and portable proxy for capturing, manipulating, and replaying HTTP/HTTPS traffic on the go.
 
+## [puredns](https://github.com/d3mondev/puredns)
+Puredns is a fast domain resolver and subdomain bruteforcing tool that can accurately filter out wildcard subdomains and DNS poisoned entries.
+
 ## [shcheck](https://github.com/santoru/shcheck)
 A basic tool to check security headers of a website
 
@@ -148,29 +160,31 @@ Fast CLI DNS Lookup Tool
 ## [zmap](https://github.com/zmap/zmap)
 ZMap is a fast single-packet network scanner optimized for Internet-wide network surveys.
 
-# Collections:
+# Tool Collections:
 * https://github.com/hahwul/WebHackersWeapons
 * https://github.com/vavkamil/awesome-bugbounty-tools
 * https://docs.osmedeus.org/premium/#anatomy-of-the-private-workflow-my-methodology
-* https://github.com/orgs/BishopFox/repositories
-* https://github.com/tomnomnom?tab=repositories
 
-# Recon
+# Recon Tools
 * https://github.com/six2dez/reconftw
 * https://github.com/honoki/bbrf-client
 * https://github.com/thewhiteh4t/FinalRecon
 * https://github.com/PatrikFehrenbach/vilicus
 
-# SMTP
+# Moch SMTP Server
 * https://github.com/axllent/mailpit
 
-# Lists
+# Wordlists, Datasets & Templates
 * https://github.com/danielmiessler/SecLists
 * https://github.com/kkrypt0nn/wordlists
 * https://github.com/ayoubfathi/leaky-paths
 * https://wordlists.assetnote.io/
 * https://public-dns.info/
 * https://github.com/trickest/resolvers
+* https://github.com/trickest/cve
+* https://github.com/projectdiscovery/nuclei-templates
+* https://github.com/projectdiscovery/fuzzing-templates
+* https://github.com/edoardottt/missing-cve-nuclei-templates
 
 # Other references:
 * https://github.com/OWASP/wstg/blob/master/checklists/checklist.md

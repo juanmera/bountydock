@@ -8,6 +8,7 @@ RUN cd /tmp && git clone -q --depth 1 https://aur.archlinux.org/yay.git && cd ya
 USER root
 
 FROM base AS gobuilds
+RUN go install github.com/projectdiscovery/alterx/cmd/alterx@latest
 RUN go install github.com/projectdiscovery/asnmap/cmd/asnmap@latest
 RUN go install github.com/projectdiscovery/cdncheck/cmd/cdncheck@latest
 RUN go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
@@ -25,6 +26,7 @@ RUN go install github.com/projectdiscovery/uncover/cmd/uncover@latest
 RUN go install github.com/BishopFox/jsluice/cmd/jsluice@latest
 RUN go install github.com/edoardottt/cariddi/cmd/cariddi@latest
 RUN go install github.com/edoardottt/csprecon/cmd/csprecon@latest
+RUN go install github.com/d3mondev/puredns/v2@latest
 RUN go install github.com/ffuf/ffuf@latest
 RUN go install github.com/hahwul/dalfox/v2@latest
 RUN go install github.com/hahwul/jwt-hack@latest
@@ -33,6 +35,8 @@ RUN go install github.com/liamg/gitjacker/cmd/gitjacker@latest
 RUN go install github.com/rs/curlie@latest
 RUN go install github.com/rverton/webanalyze/cmd/webanalyze@latest
 RUN go install github.com/sensepost/gowitness@latest
+RUN go install github.com/tomnomnom/anew@latest
+RUN go install github.com/trickest/dsieve@latest
 RUN go install github.com/OJ/gobuster/v3@latest
 RUN go install github.com/owasp-amass/amass/v4/...@latest
 RUN go install github.com/praetorian-inc/fingerprintx/cmd/fingerprintx@latest
@@ -48,12 +52,6 @@ COPY --from=gobuilds /root/go/bin/* /usr/bin/
 RUN sudo npm install -g retire
 RUN yay -Syu --needed --noconfirm --cleanafter xsv nmap zmap sqlmap wpscan nikto noseyparker metasploit wafw00f zsh-antidote freetype2 mesa massdns google-chrome
 
-WORKDIR /home/dock
-COPY --chown=dock .zsh* .vimrc ./
-RUN /usr/bin/zsh -c "source /usr/share/zsh-antidote/antidote.zsh && antidote bundle < ~/.zshplugins.txt > ~/.zshplugins" 
-#RUN mkdir -p /home/dock/.vim/bundle
-#RUN curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s - /home/dock/.vim/bundle
-
 WORKDIR /home/dock/repos
 RUN git clone -q --depth 1 https://github.com/wappalyzer/wappalyzer.git && cd wappalyzer && yarn install && yarn run link && echo -e "#/bin/sh\nnode $PWD/src/drivers/npm/cli.js "'$@' > wappalyzer && chmod +x wappalyzer && ln -s $PWD/wappalyzer $HOME/bin/
 RUN git clone -q --depth 1 https://github.com/OWASP/Nettacker && cd Nettacker && pipenv install && cd $HOME/bin && echo -e "#/bin/sh\ncd $HOME/repos/Nettacker\npipenv run python nettacker.py "'$@' > nettacker && chmod +x nettacker
@@ -68,6 +66,11 @@ RUN git clone -q --depth 1 https://github.com/Raghavd3v/CRLFsuite && cd CRLFsuit
 RUN git clone -q --depth 1 https://github.com/trickest/resolvers
 RUN git clone -q --depth 1 https://github.com/projectdiscovery/nuclei-templates
 RUN git clone -q --depth 1 https://github.com/projectdiscovery/fuzzing-templates
+RUN git clone -q --depth 1 https://github.com/edoardottt/missing-cve-nuclei-templates
+
+WORKDIR /home/dock
+COPY --chown=dock README.md .zsh* .vimrc ./
+RUN /usr/bin/zsh -c "source /usr/share/zsh-antidote/antidote.zsh && antidote bundle < ~/.zshplugins.txt > ~/.zshplugins" 
 #ENV PATH="$PATH:/home/dock/.local/bin"
 
 WORKDIR /home/dock
