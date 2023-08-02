@@ -1,6 +1,6 @@
 FROM archlinux:latest AS base
 RUN pacman-key --init
-RUN pacman -Syu --needed --noconfirm openssl-1.1 dnsutils base-devel clang cmake zsh vim wget git unzip jq go rust ruby npm python-pip python-setuptools python-pipenv yarn
+RUN pacman -Syu --needed --noconfirm openssl-1.1 dnsutils base-devel clang cmake zsh neovim nnn lnav wget git unzip jq go rust ruby npm python-pip python-setuptools python-pipenv yarn
 RUN useradd -m -G wheel -s /bin/zsh dock
 RUN echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER dock
