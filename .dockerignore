@@ -1,0 +1,6 @@
+.git/
+.gitignore
+tmp/
+data/dictionaries.tar.xz
+scripts/make-wordlists.sh
+compose.yaml

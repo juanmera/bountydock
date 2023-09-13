@@ -164,6 +164,7 @@ ZMap is a fast single-packet network scanner optimized for Internet-wide network
 * https://github.com/hahwul/WebHackersWeapons
 * https://github.com/vavkamil/awesome-bugbounty-tools
 * https://docs.osmedeus.org/premium/#anatomy-of-the-private-workflow-my-methodology
+* https://github.com/edoardottt/lit-bb-hack-tools
 
 # Recon Tools
 * https://github.com/six2dez/reconftw
@@ -178,6 +179,7 @@ ZMap is a fast single-packet network scanner optimized for Internet-wide network
 * https://github.com/danielmiessler/SecLists
 * https://github.com/kkrypt0nn/wordlists
 * https://github.com/ayoubfathi/leaky-paths
+* https://github.com/Bo0oM/fuzz.txt
 * https://wordlists.assetnote.io/
 * https://public-dns.info/
 * https://github.com/trickest/resolvers
@@ -191,3 +193,4 @@ ZMap is a fast single-packet network scanner optimized for Internet-wide network
 * https://github.com/sehno/Bug-bounty
 * https://github.com/devanshbatham/Awesome-Bugbounty-Writeups
 * https://github.com/daffainfo/AllAboutBugBounty
+* https://github.com/edoardottt/awesome-hacker-search-engines
